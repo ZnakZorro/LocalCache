@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAD////9/v7+tcfs6pFrzcdvUMfAYlrBu2xXxL5gidTPLPTu7xb///8d////K////8H////9////+v////T////y////sgu3rWULt639C7et/gu3rf4Lt63+C7et/gu3rfQLt60me1t5AOfQyAH///+D////7/////v////9/////f///1QLt62dC7et/wu3re8Lt63YC7et2Au3rfELt63/C7eticxpNwDdnHwA////Y////8T////A////u////7n///9SC7etYgu3rf4Lt63bm3pRAN2aUgALt617C7et/gu3rW9GRloA////Bv///9v////+////////////////////Xgu3rRQLt637C7et+wu3rRleX3AAC7etDQu3rU8Lt60ISEhbAG1ufgD///8f////Yv///3X///92////fP///3shnb0AC7et2Au3rf8Lt61lRkZaAPXZhQC9WBQevVgUU71YFG+9WBRuvVgUX71YFD69WBQhxF8jAP///wv///+aSLirAAu3rYULt63/C7ety5uMagC9WBRtvVgU/L1YFP69WBT/vVgU/71YFP+9WBT+vVgU/L1YFK315dsL////m8d1OgALt60eC7et/Au3rfsnp5QYvVgU7L1YFP69WBTcvVgUwr1YFL69WBTQvVgU4b1YFP29WBT90Y1fKf7+/p0vV8MA1o5qAAu3rd4Lt63+FbCjUr1YFPW9WBT8vVgUFUto4gD72nsAj5CdAL1YFAu9WBT2vVgU/dGNXyn///+fHC6TAN2kiQALt625C7et/w+0qHe9WBTxvVgU/LBVIhwSOdwAc3FkAI+QnQC9WBQIvVgUvL1YFKLu1cQM////nWQdJwDcoYQAC7etmQu3rf8LtquYvVgU571YFP69WBQ6+uOeAEZGWgBZWWsAzGYzAMFdHgKBMiUB////C////6RkHicA3KOHAAu3rW4Lt63/C7etxb1YFL29WBT/vVgUp1JSZQCKi5gARkZaAMxmMwC9WBQGrlQjA////wr///+yZyIsANyihgALt61BC7et/gu3reK7WBVBvVgU/b1YFP29WBR7vVgUJb1YFDy9WBRtvVgU7r1YFL7px7EN////tWklLwDMZjMAC7etFwu3rfwLt635IauZCr1YFJ29WBT+vVgU/r1YFP29WBT+vVgU/r1YFP69WBTS6MavDf///8xkHScAxbC1AFJ9bQELt63mC7et/gu3rXnIYisAvVgUcr1YFOa9WBTuvVgU5L1YFNO9WBSApkkYCv79/R7////+////mv///17///9lqeXipnXW0PyV39vV/v7+of///6r9/Pys+vj4sff19bX8+vuv/v7+q/7+/rv9/Pz0H+AAAEDgAACAcAAAzuAAAM//AADP/wAARgEAAGQBAABk+QAAZPkAAGD/AABwfwAAcnkAAHIBAABzgwAAMAAAAA==" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="ZnakZorro" /> 
+	<meta name="date" content="2013-02-18" /> 
+   	<title>WIZUT LocalCache Test</title>
+
+ 	<link rel="stylesheet" href="css/bootstrap-combined.min.css">
+	<style>
+		body {background:#222; }
+		#menu button {margin:4px;}
+		a {color:#666;}
+		h1 {font-size:1.4rem; line-height:1.6rem;}
+		h2 {font-size:1.2rem; line-height:1.5rem;}
+		h3 {font-size:1.1rem; line-height:1.5rem;}
+		h4 {font-size:1rem;}
+		h5 {font-size:1rem;}
+		h3.opis {display:none;}
+		h1.componentheading, h1.componentheading a {font-size:1.60rem; background: navy;color: white;padding: 5px 10px;text-indent:-10px; line-height:1.9rem;}
+	</style>
+
+	<script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
+<!--
+ 	<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
+  	<script type="text/javascript" charset="utf-8" src="cordova-2.2.0.js"></script>
+ 	<script type="text/javascript" charset="utf-8" src="js/bootstrap.min.js"></script>
+ -->	
+<script type="text/javascript" charset="utf-8">
+
+		var ___onDeviceReady=false;
+		var ___menuOpen=null;
+		var ___numerDIV=0;
+		var ___ile=0;
+		var ___numer=0;
+		var selfcache=null;
+
+
+//var zut=['wi',['aktualnosci'=>'http://www.wi.zut.edu.pl/aktualnosci?format=raw&i=3']];
+
+var zut=[];
+zut['wi']=[];
+zut['wi']['aktualnosci'] = 'http://www.wi.zut.edu.pl/aktualnosci?format=raw&i=3';	___ile++;
+zut['wi']['studenci']    = 'http://www.wi.zut.edu.pl/ogloszenia?format=raw&i=5';	___ile++;
+zut['wi']['plan']        = 'http://www.wi.zut.edu.pl/plan-zajec/zmiany-w-planie?format=raw&d=7&i=5';	___ile++;
+zut['wi']['doktoranci']  = 'http://www.wi.zut.edu.pl/doktoranci?format=raw&i=5';	___ile++;
+zut['wi']['pracownicy']  = 'http://www.wi.zut.edu.pl/pracownicy?format=raw&i=5';	___ile++;
+zut['wi']['kandydaci']   = 'http://www.wi.zut.edu.pl/ogloszenia-dla-kandydatow?format=raw&i=5';	___ile++;
+
+/*
+zut['zut']=[];
+zut['zut']['aktualnosci'] = 'http://www.zut.edu.pl/rssfeed/';
+zut['zut']['studenci']    = 'http://www.zut.edu.pl/rssfeed-studenci';
+zut['zut']['doktoranci']  = 'http://www.zut.edu.pl/rssfeed-doktoranci';
+zut['zut']['pracownicy']  = 'http://www.zut.edu.pl/rssfeed-pracownicy';
+zut['zut']['kandydaci']   = 'http://www.zut.edu.pl/rssfeed-kandydaci';
+*/
+//console.log(zut);
+//console.log(___ile);
+
+
+    function onLoad() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+		if (!___onDeviceReady) onDeviceReady();
+    }
+	
+   
+	function onDeviceReady() {
+		___onDeviceReady=true;
+		//document.getElementById('feeddiv').innerHTML='<h1>Czekamy</h1>';
+		document.addEventListener("resume", onResume, false);
+		document.addEventListener("pause", onPause, false);
+		document.addEventListener("online", onOnline, false);
+		document.addEventListener("offline", onOffline, false);
+		document.addEventListener("backbutton", onBackKeyDown, false);
+		document.addEventListener("menubutton", onMenuKeyDown, false);		
+
+	var ce = localStorage.getItem('lfc');
+	if (ce) {selfcache = JSON.parse(ce);}
+		
+		rysujMenu();
+		loadWIZUT('wi','aktualnosci');
+		loadWIZUT('wi','studenci');
+		loadWIZUT('wi','plan');
+		loadWIZUT('wi','doktoranci');
+		loadWIZUT('wi','pracownicy');
+		loadWIZUT('wi','kandydaci');
+		
+    }
+	
+	
+    function onResume() {
+		document.getElementById('test').innerHTML='onResume<br />';
+    }
+	
+    function onPause() {
+		document.getElementById('test').innerHTML='onPause<br />';
+    }
+	
+    function onOnline() {
+		document.getElementById('test').innerHTML='onOnline<br />';
+    }
+	
+	function onOffline() {
+		document.getElementById('test').innerHTML='onOffline<br />';
+    }
+	
+	function onBackKeyDown() {
+		document.getElementById('test').innerHTML='onBackKeyDown<br />';
+    }
+	
+	function onMenuKeyDown() {
+		if (___menuOpen) {document.getElementById("menu").style.display="none";___menuOpen=null;}
+		else             {document.getElementById("menu").style.display="inline";___menuOpen=true;}
+    }
+ 
+
+
+function loadXMLDoc(xurl,myDiv){
+	var now = new Date();
+	var teraz=now.getTime();
+	
+	selfcache[myDiv] ? czas=selfcache[myDiv].czas : czas=null;
+
+	if (czas){
+		var delta=(teraz-czas)/60000;
+		//console.log(myDiv+' delta= '+delta);
+		if (selfcache[myDiv].data && delta<30) //delta < XX minut
+		{
+		document.getElementById(myDiv).innerHTML=selfcache[myDiv].data;
+		return;
+		}
+	}
+
+	var xmlhttp;
+	if   (window.XMLHttpRequest){xmlhttp=new XMLHttpRequest();}
+	else {xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");}
+	xmlhttp.onreadystatechange=function(){
+		if (xmlhttp.readyState==4 && xmlhttp.status==200){
+			document.getElementById(myDiv).innerHTML=xmlhttp.responseText;
+			zaladowany(myDiv);
+		}
+	}
+	xmlhttp.open("GET",xurl,true);
+	xmlhttp.send();
+}    	
+
+
+
+function rysujMenu(){
+	var menu=kapiszon('#menu');
+	for (w in zut){
+		var wydzial=zut[w];
+			for (d in wydzial){
+				var dzial=wydzial[d];
+				//console.log(d+' = '+wydzial[d]);
+				var el = document.createElement('button');
+					el.className='btn btn-primary';
+					//el.style.display='none';
+					el.innerText=w.toUpperCase()+'.'+zDuzej(d);
+					el.setAttribute('onClick','loadWIZUT("'+w+'","'+d+'")');
+					menu.appendChild(el);
+			}
+	}
+}
+
+function loadWIZUT(wydzial,dzial){
+//console.log(___numerDIV % 3);
+___numerDIV++;
+
+	var id=wydzial+'_'+dzial;
+	var row=kapiszon('#feeddiv');
+	var span = document.createElement('div');	
+		span.className='span4 well well-small';
+		//span.className='span4 well well-large';
+	span.id=id;
+	span.setAttribute('data-store','true');
+	span.setAttribute('data-type','html');
+	span.setAttribute('data-version','1');
+	//span.setAttribute('data-length','1000');
+	span.setAttribute('data-name',id);
+	if (___numerDIV % 3 == 0) span.style.clear='right';
+	//span.setAttribute('onLoad','zaladowany("'+wydzial+'","'+dzial+'")');
+	row.appendChild(span);
+
+	var rss=zut[wydzial][dzial];
+	loadXMLDoc(rss,id);
+}
+
+
+function zaladowany(myDiv){
+	___numer++;
+	//console.log(myDiv+' -- '+___numer+' == '+___ile);
+	if (___numer>=___ile) akcjastart();
+}
+
+
+function loadURL(url){
+	try  { navigator.app.loadUrl(url, { openExternal:true } );  }
+	catch(err) {
+	  window.open(url,'_blank');
+	  }
+}
+
+function koniec(){
+	try  {navigator.app.exitApp();}
+	catch(err) {
+		window.location.reload();
+	  }
+}
+
+var kapiszon=function (id) {
+	var prefix=id[0];
+	var iid=id.slice(1,id.length);
+
+	switch (prefix){
+		case '#':	return document.getElementById(iid);   			break;
+		case '.':	return document.getElementsByClassName(iid);  	break;
+		default:	return document.getElementsByTagName(id); 
+		}
+
+	}	
+window.kapiszon=kapiszon;
+
+function zDuzej(string){return string.charAt(0).toUpperCase() + string.slice(1);}
+
+ </script>
+ 
+ </head>
+ 
+ 
+ <body onload="onLoad()">
+ 
+  
+  
+<div style="float:left; width:100%; min-height:40px;">
+	<button onClick="onMenuKeyDown();" class="btn btn-inverse" style="float:left; margin-right:1rem;">Menu</button>
+
+	<div id="menu" style="display:none; float:left;"> 
+		<!--
+		<button onClick="loadWIZUT('wi','aktualnosci');" class="btn btn-primary">Aktualności</button>
+		<button onClick="loadWIZUT('wi','studenci');" class="btn btn-primary">Studenci</button>
+		-->
+		
+	</div>
+	<button onClick="koniec();" class="btn btn-warning">Koniec</button>	
+</div>
+
+
+<div id="test" style="display:none; padding:0.5em; border:1px solid gray; background:#eee;"></div>
+<div class="container-fluid">
+	<div id="feeddiv" class="row-fluid"></div>
+</div>
+  
+
+	<script type="text/javascript" charset="utf-8" src="js/cacheloader.js"></script>
+ 	<script type="text/javascript" charset="utf-8" src="js/cachestore.js"></script>
+
+  </body>
+</html>
